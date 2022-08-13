@@ -17,3 +17,14 @@ C:\Users\PleaseStandBy\Desktop\TorpedoAssist\TorpedoAssist\TorpedoAssist\obj\Deb
 C:\Users\PleaseStandBy\Desktop\TorpedoAssist\TorpedoAssist\TorpedoAssist\obj\Debug\TorpedoAssist.csproj.CoreCompileInputs.cache
 C:\Users\PleaseStandBy\Desktop\TorpedoAssist\TorpedoAssist\TorpedoAssist\obj\Debug\TorpedoAssist.exe
 C:\Users\PleaseStandBy\Desktop\TorpedoAssist\TorpedoAssist\TorpedoAssist\obj\Debug\TorpedoAssist.pdb
+T:\dev\TorpedoAssist\bin\Debug\TorpedoAssist.exe.config
+T:\dev\TorpedoAssist\bin\Debug\TorpedoAssist.exe
+T:\dev\TorpedoAssist\bin\Debug\TorpedoAssist.pdb
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.csproj.AssemblyReference.cache
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.csproj.SuggestedBindingRedirects.cache
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.Form1.resources
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.Properties.Resources.resources
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.csproj.GenerateResource.cache
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.csproj.CoreCompileInputs.cache
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.exe
+T:\dev\TorpedoAssist\obj\Debug\TorpedoAssist.pdb

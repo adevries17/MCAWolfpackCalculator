@@ -18,7 +18,8 @@ namespace TorpedoAssist
     enum lang
     {
         rus = 4,
-        eng = 5
+        eng = 5,
+        ger = 6
     }
 
     public partial class Form1 : Form
@@ -28,7 +29,7 @@ namespace TorpedoAssist
         public Form1()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 1;
+            comboBox1.SelectedIndex = 0;
         }
 
         string strNameless;
@@ -51,20 +52,20 @@ namespace TorpedoAssist
                     strSpeed = "\" Speed (knots) = ";
                     strHm = " hm, ";
                     strKm = " m";
-                    targetNameHead.Text = "Name:";
+                    targetNameHead.Text = "Target ID:";
                     notNecessaryLabel.Text = "(optionally)";
                     headRangeHead.Text = "Range to target";
                     mastHeightLabel.Text = "Mast height:";
                     linesNumberLabel.Text = "Lines amount:";
                     isZoomedBox.Text = "Is zoomed";
                     calculateRangeButton.Text = "Calculate the distance";
-                    calcRangeLabel.Text = "Calculated distance =";
+                    calcRangeLabel.Text = "Range to target =";
                     headTargetSpeedHead.Text = "Speed of target";
                     lengthLabel.Text = "Target length (m):";
-                    timeLabel.Text = "Time to complete the hull:";
+                    timeLabel.Text = "Elapsed time:";
                     calculateSpeedButton.Text = "Calculate speed";
                     calcSpeedLabel.Text = "Speed in knots = ";
-                    langLabel.Text = "Lang.:";
+                    langLabel.Text = "Language:";
                     calculationHistoryHead.Text = "Calculation log";
                     ResetCLButton.Text = "Reset log";
                     clearFieldsButton.Text = "Reset fields";
@@ -85,7 +86,7 @@ namespace TorpedoAssist
                     linesNumberLabel.Text = "Кол-во рисок:";
                     isZoomedBox.Text = "Есть увеличение";
                     calculateRangeButton.Text = "Рассчитать дистанцию";
-                    calcRangeLabel.Text = "Рассчитанная дистанция = ";
+                    calcRangeLabel.Text = "ДИАПАЗОН ДО ЦЕЛИ = ";
                     headTargetSpeedHead.Text = "Скорость цели";
                     lengthLabel.Text = "Длина цели (м):";
                     timeLabel.Text = "Время на прохождение корпуса:";
@@ -95,6 +96,33 @@ namespace TorpedoAssist
                     calculationHistoryHead.Text = "История расчётов";
                     ResetCLButton.Text = "Очистить историю";
                     clearFieldsButton.Text = "Очистить поля";
+                    break;
+                case lang.ger:
+                    timeTextBox.Left = 165;
+                    calculationHistoryHead.Left = 465;
+                    strNameless = "Unnamed";
+                    strTarget = "Ziel: \"";
+                    strRange = "\" Bereich = ";
+                    strSpeed = "\" Geschwindigkeit(Knoten) = ";
+                    strHm = " hm, ";
+                    strKm = " m";
+                    targetNameHead.Text = "Ziel:";
+                    notNecessaryLabel.Text = "(optional)";
+                    headRangeHead.Text = "Reichweite zum Ziel";
+                    mastHeightLabel.Text = "Masthöhe:";
+                    linesNumberLabel.Text = "Zeilenbetrag:";
+                    isZoomedBox.Text = "GEZOOMT";
+                    calculateRangeButton.Text = "Berechnen Sie die Entfernung";
+                    calcRangeLabel.Text = "REICHWEITE ZUM ZIEL =";
+                    headTargetSpeedHead.Text = "Geschwindigkeit des Ziels";
+                    lengthLabel.Text = "Ziellänge (m):";
+                    timeLabel.Text = "Zeit, den Rumpf fertigzustellen:";
+                    calculateSpeedButton.Text = "Geschwindigkeit berechnen";
+                    calcSpeedLabel.Text = "Geschwindigkeit in Knoten = ";
+                    langLabel.Text = "Sprache:";
+                    calculationHistoryHead.Text = "Berechnungsprotokoll";
+                    ResetCLButton.Text = "Protokoll zurücksetzen";
+                    clearFieldsButton.Text = "Felder zurücksetzen";
                     break;
             }
         }
@@ -115,11 +143,11 @@ namespace TorpedoAssist
             return 0;
         }
 
-        private double calculateSpeed(double lenght, double time)
+        private double calculateSpeed(double length, double time)
         {
-            if (lenght == 0 || time == 0) return 0;
-            else if (lenght > 500 || time > 600) return 0;
-            return lenght / time * 2;
+            if (length == 0 || time == 0) return 0;
+            else if (length > 500 || time > 600) return 0;
+            return length / time * 2;
         }
 
         private void toHistory(string targetName, calculationType calcType) //Add last data to calculation log
@@ -147,7 +175,7 @@ namespace TorpedoAssist
         {
             bool wasValidate = false;
             wasValidate = validateTextbox(mastHeightTextBox) || validateTextbox(linesNumberTextBox)
-                          || validateTextbox(lenghtTextBox)  || validateTextbox(timeTextBox);
+                          || validateTextbox(lengthTextBox)  || validateTextbox(timeTextBox);
 
             if (wasValidate) clearTextBoxes();
 
@@ -165,7 +193,7 @@ namespace TorpedoAssist
         {
             mastHeightTextBox.Text = "0";
             linesNumberTextBox.Text = "0";
-            lenghtTextBox.Text = "0";
+            lengthTextBox.Text = "0";
             timeTextBox.Text = "0";
         }
 
@@ -198,20 +226,24 @@ namespace TorpedoAssist
         {
             if (validateAllBoxes()) return;
             double speed;
-            speed = calculateSpeed(double.Parse(lenghtTextBox.Text), double.Parse(timeTextBox.Text));
+            speed = calculateSpeed(double.Parse(lengthTextBox.Text), double.Parse(timeTextBox.Text));
             speedValueLabel.Text = speed.ToString("F2");
             toHistory(targetNameTextBox.Text, calculationType.speedCalculation);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
+            if (comboBox1.SelectedIndex == 1)
             {
                 changeLang(lang.rus);
             }
-            if (comboBox1.SelectedIndex == 1)
+            if (comboBox1.SelectedIndex == 0)
             {
                 changeLang(lang.eng);
+            }
+            if (comboBox1.SelectedIndex == 2)
+            {
+                changeLang(lang.ger);
             }
         }
 
@@ -226,7 +258,7 @@ namespace TorpedoAssist
                 targetNameTextBox.Text = "";
                 mastHeightTextBox.Text = "0";
                 linesNumberTextBox.Text = "0";
-                lenghtTextBox.Text = "0";
+                lengthTextBox.Text = "0";
                 timeTextBox.Text = "0";
         }
 
