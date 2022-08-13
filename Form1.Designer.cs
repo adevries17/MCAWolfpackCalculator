@@ -199,7 +199,7 @@
             this.calculateRangeButton.TabIndex = 15;
             this.calculateRangeButton.Text = "Calculate the distance";
             this.calculateRangeButton.UseVisualStyleBackColor = true;
-            this.calculateRangeButton.Click += new System.EventHandler(this.calculateRangeButton_Click);
+            this.calculateRangeButton.Click += new System.EventHandler(this.CalculateRangeButton_Click);
             // 
             // calculateSpeedButton
             // 
@@ -209,7 +209,7 @@
             this.calculateSpeedButton.TabIndex = 16;
             this.calculateSpeedButton.Text = "Calculate speed";
             this.calculateSpeedButton.UseVisualStyleBackColor = true;
-            this.calculateSpeedButton.Click += new System.EventHandler(this.calculateSpeedButton_Click);
+            this.calculateSpeedButton.Click += new System.EventHandler(this.CalculateSpeedButton_Click);
             // 
             // targetNameHead
             // 
@@ -266,7 +266,7 @@
             this.ResetCLButton.TabIndex = 24;
             this.ResetCLButton.Text = "Reset Log";
             this.ResetCLButton.UseVisualStyleBackColor = true;
-            this.ResetCLButton.Click += new System.EventHandler(this.clearHistorybutton_Click);
+            this.ResetCLButton.Click += new System.EventHandler(this.ClearHistorybutton_Click);
             // 
             // clearFieldsButton
             // 
@@ -276,7 +276,7 @@
             this.clearFieldsButton.TabIndex = 25;
             this.clearFieldsButton.Text = "Reset Field";
             this.clearFieldsButton.UseVisualStyleBackColor = true;
-            this.clearFieldsButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearFieldsButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // langLabel
             // 
@@ -301,7 +301,7 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 22;
             this.comboBox1.TabStop = false;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
