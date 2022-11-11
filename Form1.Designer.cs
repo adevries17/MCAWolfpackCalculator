@@ -1,39 +1,34 @@
-﻿namespace TorpedoAssist
-{
-    partial class Form1
-    {
+﻿namespace TorpedoAssist {
+    partial class Form1 {
         /// <summary>
-        /// Обязательная переменная конструктора.
+        /// Mandatory design variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Освободить все используемые ресурсы.
+        /// Free all used resources.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        /// <param name="disposing">true if the managed resource must be deleted; otherwise false.</param>
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Code automatically created by the Windows form designer
 
         /// <summary>
         /// Требуемый метод для поддержки конструктора — не изменяйте 
         /// содержимое этого метода с помощью редактора кода.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.headRangeHead = new System.Windows.Forms.Label();
             this.headTargetSpeedHead = new System.Windows.Forms.Label();
             this.mastHeightLabel = new System.Windows.Forms.Label();
             this.mastHeightTextBox = new System.Windows.Forms.TextBox();
-            this.linesNumberLabel = new System.Windows.Forms.Label();
+            this.milsNumberLabel = new System.Windows.Forms.Label();
             this.linesNumberTextBox = new System.Windows.Forms.TextBox();
             this.isZoomedBox = new System.Windows.Forms.CheckBox();
             this.calcRangeLabel = new System.Windows.Forms.Label();
@@ -94,14 +89,14 @@
             this.mastHeightTextBox.TabIndex = 3;
             this.mastHeightTextBox.Text = "0";
             // 
-            // linesNumberLabel
+            // milsNumberLabel
             // 
-            this.linesNumberLabel.AutoSize = true;
-            this.linesNumberLabel.Location = new System.Drawing.Point(12, 105);
-            this.linesNumberLabel.Name = "linesNumberLabel";
-            this.linesNumberLabel.Size = new System.Drawing.Size(73, 13);
-            this.linesNumberLabel.TabIndex = 4;
-            this.linesNumberLabel.Text = "Lines amount:";
+            this.milsNumberLabel.AutoSize = true;
+            this.milsNumberLabel.Location = new System.Drawing.Point(12, 105);
+            this.milsNumberLabel.Name = "milsNumberLabel";
+            this.milsNumberLabel.Size = new System.Drawing.Size(28, 13);
+            this.milsNumberLabel.TabIndex = 4;
+            this.milsNumberLabel.Text = "Mils:";
             // 
             // linesNumberTextBox
             // 
@@ -199,7 +194,7 @@
             this.calculateRangeButton.TabIndex = 15;
             this.calculateRangeButton.Text = "Calculate the distance";
             this.calculateRangeButton.UseVisualStyleBackColor = true;
-            this.calculateRangeButton.Click += new System.EventHandler(this.calculateRangeButton_Click);
+            this.calculateRangeButton.Click += new System.EventHandler(this.CalculateRangeButton_Click);
             // 
             // calculateSpeedButton
             // 
@@ -209,7 +204,7 @@
             this.calculateSpeedButton.TabIndex = 16;
             this.calculateSpeedButton.Text = "Calculate speed";
             this.calculateSpeedButton.UseVisualStyleBackColor = true;
-            this.calculateSpeedButton.Click += new System.EventHandler(this.calculateSpeedButton_Click);
+            this.calculateSpeedButton.Click += new System.EventHandler(this.CalculateSpeedButton_Click);
             // 
             // targetNameHead
             // 
@@ -266,7 +261,7 @@
             this.ResetCLButton.TabIndex = 24;
             this.ResetCLButton.Text = "Reset Log";
             this.ResetCLButton.UseVisualStyleBackColor = true;
-            this.ResetCLButton.Click += new System.EventHandler(this.clearHistorybutton_Click);
+            this.ResetCLButton.Click += new System.EventHandler(this.ClearHistorybutton_Click);
             // 
             // clearFieldsButton
             // 
@@ -276,7 +271,7 @@
             this.clearFieldsButton.TabIndex = 25;
             this.clearFieldsButton.Text = "Reset Field";
             this.clearFieldsButton.UseVisualStyleBackColor = true;
-            this.clearFieldsButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearFieldsButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // langLabel
             // 
@@ -301,7 +296,7 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 22;
             this.comboBox1.TabStop = false;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -329,7 +324,7 @@
             this.Controls.Add(this.calcRangeLabel);
             this.Controls.Add(this.isZoomedBox);
             this.Controls.Add(this.linesNumberTextBox);
-            this.Controls.Add(this.linesNumberLabel);
+            this.Controls.Add(this.milsNumberLabel);
             this.Controls.Add(this.mastHeightTextBox);
             this.Controls.Add(this.mastHeightLabel);
             this.Controls.Add(this.headTargetSpeedHead);
@@ -352,7 +347,7 @@
         private System.Windows.Forms.Label headTargetSpeedHead;
         private System.Windows.Forms.Label mastHeightLabel;
         private System.Windows.Forms.TextBox mastHeightTextBox;
-        private System.Windows.Forms.Label linesNumberLabel;
+        private System.Windows.Forms.Label milsNumberLabel;
         private System.Windows.Forms.TextBox linesNumberTextBox;
         private System.Windows.Forms.CheckBox isZoomedBox;
         private System.Windows.Forms.Label calcRangeLabel;

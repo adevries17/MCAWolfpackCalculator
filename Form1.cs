@@ -1,33 +1,27 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace TorpedoAssist
-{
-    enum units
-    {
+namespace TorpedoAssist {
+    enum Units {
         kilometers,
         hectometers
     };
 
-    enum calculationType
-    {
+    enum CalculationType {
         speedCalculation = 2,
         rangeCalculation = 3
     }
 
-    enum lang
-    {
+    enum Lang {
         rus = 4,
         eng = 5,
         ger = 6
     }
 
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : Form {
 
         int historyLine = 0;
-        public Form1()
-        {
+        public Form1() {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
         }
@@ -39,11 +33,10 @@ namespace TorpedoAssist
         string strHm;
         string strKm;
 
-        private void changeLang(lang language) //Text constants for language
+        private void ChangeLang(Lang language) //Text constants for language
         {
-            switch (language)
-            {
-                case lang.eng:
+            switch (language) {
+                case Lang.eng:
                     timeTextBox.Left = 140;
                     calculationHistoryHead.Left = 465;
                     strNameless = "Unnamed";
@@ -56,7 +49,7 @@ namespace TorpedoAssist
                     notNecessaryLabel.Text = "(optionally)";
                     headRangeHead.Text = "Range to target";
                     mastHeightLabel.Text = "Mast height:";
-                    linesNumberLabel.Text = "Lines amount:";
+                    milsNumberLabel.Text = "Mils:";
                     isZoomedBox.Text = "Is zoomed";
                     calculateRangeButton.Text = "Calculate the distance";
                     calcRangeLabel.Text = "Range to target =";
@@ -70,7 +63,7 @@ namespace TorpedoAssist
                     ResetCLButton.Text = "Reset log";
                     clearFieldsButton.Text = "Reset fields";
                     break;
-                case lang.rus:
+                case Lang.rus:
                     calculationHistoryHead.Left = 453;
                     timeTextBox.Left = 190;
                     strNameless = "Без имени";
@@ -83,7 +76,7 @@ namespace TorpedoAssist
                     notNecessaryLabel.Text = "(можно не указывать)";
                     headRangeHead.Text = "Дистанция до цели";
                     mastHeightLabel.Text = "Высота мачты:";
-                    linesNumberLabel.Text = "Кол-во рисок:";
+                    milsNumberLabel.Text = "Кол-во рисок:";
                     isZoomedBox.Text = "Есть увеличение";
                     calculateRangeButton.Text = "Рассчитать дистанцию";
                     calcRangeLabel.Text = "ДИАПАЗОН ДО ЦЕЛИ = ";
@@ -97,7 +90,7 @@ namespace TorpedoAssist
                     ResetCLButton.Text = "Очистить историю";
                     clearFieldsButton.Text = "Очистить поля";
                     break;
-                case lang.ger:
+                case Lang.ger:
                     timeTextBox.Left = 165;
                     calculationHistoryHead.Left = 465;
                     strNameless = "Unnamed";
@@ -110,7 +103,7 @@ namespace TorpedoAssist
                     notNecessaryLabel.Text = "(optional)";
                     headRangeHead.Text = "Reichweite zum Ziel";
                     mastHeightLabel.Text = "Masthöhe:";
-                    linesNumberLabel.Text = "Zeilenbetrag:";
+                    milsNumberLabel.Text = "Zeilenbetrag:";
                     isZoomedBox.Text = "GEZOOMT";
                     calculateRangeButton.Text = "Berechnen Sie die Entfernung";
                     calcRangeLabel.Text = "REICHWEITE ZUM ZIEL =";
@@ -127,70 +120,62 @@ namespace TorpedoAssist
             }
         }
 
-        private double calculateRange(units unit, double mastHeight, double linesNumber, bool isZoomed)
-        {
-            if (mastHeight == 0 || linesNumber == 0) return 0;
-            else if (mastHeight > 200 || linesNumber > 30) return 0;
-            switch (unit)
-            {
-                case units.kilometers:
-                    if (isZoomed) return ((mastHeight / linesNumber) * 4) * 100;
-                    else return (mastHeight / linesNumber) * 100;
-                case units.hectometers:
-                    if (isZoomed) return (mastHeight / linesNumber) * 4;
-                    else return (mastHeight / linesNumber);
+        private double CalculateRange(Units unit, double mastHeight, double mils, bool isZoomed) {
+            if (mastHeight == 0 || mils == 0) return 0;
+            else if (mastHeight > 200 || mils == 0) return 0;
+            switch (unit) {
+                case Units.kilometers:
+                    if (isZoomed) return ((mastHeight / mils) * 4) * 100;
+                    else return (mastHeight / mils) * 100;
+                case Units.hectometers:
+                    if (isZoomed) return (mastHeight / mils) * 4;
+                    else return (mastHeight / mils);
             }
             return 0;
         }
 
-        private double calculateSpeed(double length, double time)
-        {
+        private double CalculateSpeed(double length, double time) {
             if (length == 0 || time == 0) return 0;
             else if (length > 500 || time > 600) return 0;
             return length / time * 2;
         }
 
-        private void toHistory(string targetName, calculationType calcType) //Add last data to calculation log
+        private void ToHistory(string targetName, CalculationType calcType) //Add last data to calculation log
         {
-            if (historyLine == 21)
-            {
+            if (historyLine == 21) {
                 historyTextBox.Clear();
                 historyLine = 0;
             }
             if (targetName == "") targetName = strNameless;
-            switch (calcType)
-            {
-                case calculationType.rangeCalculation:
+            switch (calcType) {
+                case CalculationType.rangeCalculation:
                     historyTextBox.Text += strTarget + targetName + strRange + rangeValueLabel.Text + Environment.NewLine;
                     break;
-                case calculationType.speedCalculation:
+                case CalculationType.speedCalculation:
                     historyTextBox.Text += strTarget + targetName + strSpeed + speedValueLabel.Text + Environment.NewLine;
                     break;
             }
             historyLine++;
         }
 
-        
-        private bool validateAllBoxes()
-        {
-            bool wasValidate = false;
-            wasValidate = validateTextbox(mastHeightTextBox) || validateTextbox(linesNumberTextBox)
-                          || validateTextbox(lengthTextBox)  || validateTextbox(timeTextBox);
 
-            if (wasValidate) clearTextBoxes();
+        private bool ValidateAllBoxes() {
+            bool wasValidate = false;
+            wasValidate = ValidateTextbox(mastHeightTextBox) || ValidateTextbox(linesNumberTextBox)
+                          || ValidateTextbox(lengthTextBox) || ValidateTextbox(timeTextBox);
+
+            if (wasValidate) ClearTextBoxes();
 
             return wasValidate;
         }
 
-        private bool validateTextbox(TextBox txtbox)
-        {
+        private bool ValidateTextbox(TextBox txtbox) {
             bool result = !(IsNum(txtbox.Text));
 
             return result;
         }
 
-        private void clearTextBoxes()
-        {
+        private void ClearTextBoxes() {
             mastHeightTextBox.Text = "0";
             linesNumberTextBox.Text = "0";
             lengthTextBox.Text = "0";
@@ -198,78 +183,61 @@ namespace TorpedoAssist
         }
 
 
-       private bool IsNum(string s)
-        {
+        private bool IsNum(string s) {
             int m = 0;
-            for(int i = 0; i < s.Length;i++)
-            {
-                if (!Char.IsDigit(s[i]) && s[i]!=',' ) return false;
+            for (int i = 0; i < s.Length; i++) {
+                if (!Char.IsDigit(s[i]) && s[i] != ',') return false;
                 if (s[i] == ',') m++;
                 if (m > 1) return false;
             }
-            
+
             return true;
         }
-        
-        private void calculateRangeButton_Click(object sender, EventArgs e)
-        {
-            if(validateAllBoxes()) return;
+
+        private void CalculateRangeButton_Click(object sender, EventArgs e) {
+            if (ValidateAllBoxes()) return;
             double rangeInHecto;
             double rangeInKilo;
-            rangeInHecto = calculateRange(units.hectometers, double.Parse(mastHeightTextBox.Text), double.Parse(linesNumberTextBox.Text), isZoomedBox.Checked);
-            rangeInKilo = calculateRange(units.kilometers, double.Parse(mastHeightTextBox.Text), double.Parse(linesNumberTextBox.Text), isZoomedBox.Checked);
+            rangeInHecto = CalculateRange(Units.hectometers, double.Parse(mastHeightTextBox.Text), double.Parse(linesNumberTextBox.Text), isZoomedBox.Checked);
+            rangeInKilo = CalculateRange(Units.kilometers, double.Parse(mastHeightTextBox.Text), double.Parse(linesNumberTextBox.Text), isZoomedBox.Checked);
             rangeValueLabel.Text = rangeInHecto.ToString("F2") + strHm + rangeInKilo.ToString("F2") + strKm;
-            toHistory(targetNameTextBox.Text,calculationType.rangeCalculation);
+            ToHistory(targetNameTextBox.Text, CalculationType.rangeCalculation);
         }
 
-        private void calculateSpeedButton_Click(object sender, EventArgs e)
-        {
-            if (validateAllBoxes()) return;
+        private void CalculateSpeedButton_Click(object sender, EventArgs e) {
+            if (ValidateAllBoxes()) return;
             double speed;
-            speed = calculateSpeed(double.Parse(lengthTextBox.Text), double.Parse(timeTextBox.Text));
+            speed = CalculateSpeed(double.Parse(lengthTextBox.Text), double.Parse(timeTextBox.Text));
             speedValueLabel.Text = speed.ToString("F2");
-            toHistory(targetNameTextBox.Text, calculationType.speedCalculation);
+            ToHistory(targetNameTextBox.Text, CalculationType.speedCalculation);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedIndex == 1)
-            {
-                changeLang(lang.rus);
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            if (comboBox1.SelectedIndex == 1) {
+                ChangeLang(Lang.rus);
             }
-            if (comboBox1.SelectedIndex == 0)
-            {
-                changeLang(lang.eng);
+            if (comboBox1.SelectedIndex == 0) {
+                ChangeLang(Lang.eng);
             }
-            if (comboBox1.SelectedIndex == 2)
-            {
-                changeLang(lang.ger);
+            if (comboBox1.SelectedIndex == 2) {
+                ChangeLang(Lang.ger);
             }
         }
 
-        private void clearHistorybutton_Click(object sender, EventArgs e)
-        {
+        private void ClearHistorybutton_Click(object sender, EventArgs e) {
             historyTextBox.Clear();
             historyLine = 0;
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-                targetNameTextBox.Text = "";
-                mastHeightTextBox.Text = "0";
-                linesNumberTextBox.Text = "0";
-                lengthTextBox.Text = "0";
-                timeTextBox.Text = "0";
+        private void ClearButton_Click(object sender, EventArgs e) {
+            targetNameTextBox.Text = "";
+            mastHeightTextBox.Text = "0";
+            linesNumberTextBox.Text = "0";
+            lengthTextBox.Text = "0";
+            timeTextBox.Text = "0";
         }
 
     }
 
 
 }
-
-
-
-
-
-
- 
