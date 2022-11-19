@@ -335,7 +335,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(725, 400);
             this.Name = "Form1";
-            this.Text = "TorpedoAssist 1.1";
+            this.Text = "TorpedoAssist 1.2";
             this.ResumeLayout(false);
             this.PerformLayout();
 
