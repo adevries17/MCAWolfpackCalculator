@@ -2,16 +2,20 @@
 using System.Windows.Forms;
 
 namespace TorpedoAssist {
+
+    // define units
     enum Units {
         kilometers,
         hectometers
     };
 
+    // type of calculations
     enum CalculationType {
         speedCalculation = 2,
         rangeCalculation = 3
     }
 
+    // available languages
     enum Lang {
         rus = 4,
         eng = 5,
@@ -33,8 +37,8 @@ namespace TorpedoAssist {
         string strHm;
         string strKm;
 
-        private void ChangeLang(Lang language) //Text constants for language
-        {
+        //Text constants for language
+        private void ChangeLang(Lang language) {
             switch (language) {
                 case Lang.eng:
                     timeTextBox.Left = 140;
@@ -120,6 +124,7 @@ namespace TorpedoAssist {
             }
         }
 
+        // calculate range
         private double CalculateRange(Units unit, double mastHeight, double mils, bool isZoomed) {
             if (mastHeight == 0 || mils == 0) return 0;
             else if (mastHeight > 200 || mils == 0) return 0;
@@ -134,14 +139,15 @@ namespace TorpedoAssist {
             return 0;
         }
 
+        // calculate the speed
         private double CalculateSpeed(double length, double time) {
             if (length == 0 || time == 0) return 0;
             else if (length > 500 || time > 600) return 0;
             return length / time * 2;
         }
 
-        private void ToHistory(string targetName, CalculationType calcType) //Add last data to calculation log
-        {
+        // write results to history log to reference later
+        private void ToHistory(string targetName, CalculationType calcType) {
             if (historyLine == 21) {
                 historyTextBox.Clear();
                 historyLine = 0;
@@ -158,7 +164,7 @@ namespace TorpedoAssist {
             historyLine++;
         }
 
-
+        // verify that all values are numbers
         private bool ValidateAllBoxes() {
             bool wasValidate = false;
             wasValidate = ValidateTextbox(mastHeightTextBox) || ValidateTextbox(linesNumberTextBox)
@@ -169,12 +175,14 @@ namespace TorpedoAssist {
             return wasValidate;
         }
 
+        // validate inputs are numbers
         private bool ValidateTextbox(TextBox txtbox) {
             bool result = !(IsNum(txtbox.Text));
 
             return result;
         }
 
+        // clear all input boxes
         private void ClearTextBoxes() {
             mastHeightTextBox.Text = "0";
             linesNumberTextBox.Text = "0";
@@ -182,7 +190,7 @@ namespace TorpedoAssist {
             timeTextBox.Text = "0";
         }
 
-
+        // sanitize that inputs are valid numbers and return
         private bool IsNum(string s) {
             int m = 0;
             for (int i = 0; i < s.Length; i++) {
@@ -194,6 +202,7 @@ namespace TorpedoAssist {
             return true;
         }
 
+        // perform range calculation at button click
         private void CalculateRangeButton_Click(object sender, EventArgs e) {
             if (ValidateAllBoxes()) return;
             double rangeInHecto;
@@ -204,6 +213,7 @@ namespace TorpedoAssist {
             ToHistory(targetNameTextBox.Text, CalculationType.rangeCalculation);
         }
 
+        // perform the speed calculation at button click
         private void CalculateSpeedButton_Click(object sender, EventArgs e) {
             if (ValidateAllBoxes()) return;
             double speed;
@@ -212,6 +222,7 @@ namespace TorpedoAssist {
             ToHistory(targetNameTextBox.Text, CalculationType.speedCalculation);
         }
 
+        // language selector drop down
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
             if (comboBox1.SelectedIndex == 1) {
                 ChangeLang(Lang.rus);
@@ -224,11 +235,13 @@ namespace TorpedoAssist {
             }
         }
 
+        // clear the history log
         private void ClearHistorybutton_Click(object sender, EventArgs e) {
             historyTextBox.Clear();
             historyLine = 0;
         }
 
+        // clear everything box
         private void ClearButton_Click(object sender, EventArgs e) {
             targetNameTextBox.Text = "";
             mastHeightTextBox.Text = "0";
@@ -238,6 +251,4 @@ namespace TorpedoAssist {
         }
 
     }
-
-
 }
