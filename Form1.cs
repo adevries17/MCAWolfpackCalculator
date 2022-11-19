@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace TorpedoAssist {
+namespace MCAWolfpackCalculator {
 
     // define units
     enum Units {

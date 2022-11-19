@@ -1,4 +1,4 @@
-﻿namespace TorpedoAssist {
+﻿namespace MCAWolfpackCalculator {
     partial class Form1 {
         /// <summary>
         /// Mandatory design variable.
@@ -50,6 +50,11 @@
             this.clearFieldsButton = new System.Windows.Forms.Button();
             this.langLabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.radioTube1 = new System.Windows.Forms.RadioButton();
+            this.radioTube2 = new System.Windows.Forms.RadioButton();
+            this.radioTube3 = new System.Windows.Forms.RadioButton();
+            this.radioTube4 = new System.Windows.Forms.RadioButton();
+            this.radioTube5 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // headRangeHead
@@ -298,11 +303,71 @@
             this.comboBox1.TabStop = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
+            // radioTube1
+            // 
+            this.radioTube1.AutoSize = true;
+            this.radioTube1.Location = new System.Drawing.Point(237, 33);
+            this.radioTube1.Name = "radioTube1";
+            this.radioTube1.Size = new System.Drawing.Size(56, 17);
+            this.radioTube1.TabIndex = 26;
+            this.radioTube1.TabStop = true;
+            this.radioTube1.Text = "Tube1";
+            this.radioTube1.UseVisualStyleBackColor = true;
+            // 
+            // radioTube2
+            // 
+            this.radioTube2.AutoSize = true;
+            this.radioTube2.Location = new System.Drawing.Point(237, 56);
+            this.radioTube2.Name = "radioTube2";
+            this.radioTube2.Size = new System.Drawing.Size(56, 17);
+            this.radioTube2.TabIndex = 27;
+            this.radioTube2.TabStop = true;
+            this.radioTube2.Text = "Tube2";
+            this.radioTube2.UseVisualStyleBackColor = true;
+            // 
+            // radioTube3
+            // 
+            this.radioTube3.AutoSize = true;
+            this.radioTube3.Location = new System.Drawing.Point(299, 33);
+            this.radioTube3.Name = "radioTube3";
+            this.radioTube3.Size = new System.Drawing.Size(56, 17);
+            this.radioTube3.TabIndex = 28;
+            this.radioTube3.TabStop = true;
+            this.radioTube3.Text = "Tube3";
+            this.radioTube3.UseVisualStyleBackColor = true;
+            // 
+            // radioTube4
+            // 
+            this.radioTube4.AutoSize = true;
+            this.radioTube4.Location = new System.Drawing.Point(299, 56);
+            this.radioTube4.Name = "radioTube4";
+            this.radioTube4.Size = new System.Drawing.Size(56, 17);
+            this.radioTube4.TabIndex = 29;
+            this.radioTube4.TabStop = true;
+            this.radioTube4.Text = "Tube4";
+            this.radioTube4.UseVisualStyleBackColor = true;
+            // 
+            // radioTube5
+            // 
+            this.radioTube5.AutoSize = true;
+            this.radioTube5.Location = new System.Drawing.Point(267, 79);
+            this.radioTube5.Name = "radioTube5";
+            this.radioTube5.Size = new System.Drawing.Size(56, 17);
+            this.radioTube5.TabIndex = 30;
+            this.radioTube5.TabStop = true;
+            this.radioTube5.Text = "Tube5";
+            this.radioTube5.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 361);
+            this.Controls.Add(this.radioTube5);
+            this.Controls.Add(this.radioTube4);
+            this.Controls.Add(this.radioTube3);
+            this.Controls.Add(this.radioTube2);
+            this.Controls.Add(this.radioTube1);
             this.Controls.Add(this.clearFieldsButton);
             this.Controls.Add(this.ResetCLButton);
             this.Controls.Add(this.langLabel);
@@ -335,7 +400,9 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(725, 400);
             this.Name = "Form1";
-            this.Text = "TorpedoAssist 1.2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MCAWolfpackCalculator 1.3";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,6 +436,11 @@
         private System.Windows.Forms.Button clearFieldsButton;
         private System.Windows.Forms.Label langLabel;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RadioButton radioTube1;
+        private System.Windows.Forms.RadioButton radioTube2;
+        private System.Windows.Forms.RadioButton radioTube3;
+        private System.Windows.Forms.RadioButton radioTube4;
+        private System.Windows.Forms.RadioButton radioTube5;
     }
 }
 
