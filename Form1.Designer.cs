@@ -401,7 +401,8 @@
             this.MinimumSize = new System.Drawing.Size(725, 400);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MCAWolfpackCalculator 1.2";
+            this.Text = "MCAWolfpackCalculator 1.3";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
