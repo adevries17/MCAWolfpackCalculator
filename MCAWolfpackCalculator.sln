@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TorpedoAssist", "TorpedoAssist.csproj", "{A01D967F-A7CB-4659-810E-4628D54E0CD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCAWolfpackCalculator", "MCAWolfpackCalculator.csproj", "{A01D967F-A7CB-4659-810E-4628D54E0CD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D40CE3C5-DFB4-45DB-88C6-79E4B8E0F761}
 	EndGlobalSection
 EndGlobal
