@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace MCAWolfpackCalculator {
 
-    // define units
+    // define unit types
     enum Units {
         kilometers,
         hectometers
@@ -22,10 +22,10 @@ namespace MCAWolfpackCalculator {
         ger = 6
     }
 
-    public partial class Form1 : Form {
+    public partial class MainDiag : Form {
 
         int historyLine = 0;
-        public Form1() {
+        public MainDiag() {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
         }
@@ -130,10 +130,10 @@ namespace MCAWolfpackCalculator {
             else if (mastHeight > 200 || mils == 0) return 0;
             switch (unit) {
                 case Units.kilometers:
-                    if (isZoomed) return ((mastHeight / mils) * 4) * 100;
-                    else return (mastHeight / mils) * 100;
+                    if (isZoomed) return ((mastHeight / mils) * 4.0) * 100.0;
+                    else return (mastHeight / mils) * 100.0;
                 case Units.hectometers:
-                    if (isZoomed) return (mastHeight / mils) * 4;
+                    if (isZoomed) return (mastHeight / mils) * 4.0;
                     else return (mastHeight / mils);
             }
             return 0;
@@ -177,7 +177,7 @@ namespace MCAWolfpackCalculator {
 
         // validate inputs are numbers
         private bool ValidateTextbox(TextBox txtbox) {
-            bool result = !(IsNum(txtbox.Text));
+            bool result = !IsNum(txtbox.Text);
 
             return result;
         }
@@ -194,8 +194,8 @@ namespace MCAWolfpackCalculator {
         private bool IsNum(string s) {
             int m = 0;
             for (int i = 0; i < s.Length; i++) {
-                if (!Char.IsDigit(s[i]) && s[i] != ',') return false;
-                if (s[i] == ',') m++;
+                if (!Char.IsDigit(s[i]) && s[i] != '.') return false;
+                if (s[i] == '.') m++;
                 if (m > 1) return false;
             }
 

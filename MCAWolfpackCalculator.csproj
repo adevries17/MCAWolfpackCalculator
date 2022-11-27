@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>torpedo256256.ico</ApplicationIcon>
+    <ApplicationIcon>icon\torpedo256256.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>83635793AFBC9C9AC1262BC67DBF54F6928C98F2</ManifestCertificateThumbprint>
@@ -107,14 +107,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TorpedoAssist_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="torpedo2424.ico" />
-    <Content Include="torpedo256256.ico" />
+    <Content Include="icon\torpedo2424.ico" />
+    <Content Include="icon\torpedo256256.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
