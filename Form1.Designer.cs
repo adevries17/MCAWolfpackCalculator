@@ -1,5 +1,5 @@
 ﻿namespace MCAWolfpackCalculator {
-    partial class Form1 {
+    partial class MainDiag {
         /// <summary>
         /// Mandatory design variable.
         /// </summary>
@@ -23,7 +23,7 @@
         /// содержимое этого метода с помощью редактора кода.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainDiag));
             this.headRangeHead = new System.Windows.Forms.Label();
             this.headTargetSpeedHead = new System.Windows.Forms.Label();
             this.mastHeightLabel = new System.Windows.Forms.Label();
@@ -293,12 +293,12 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "English",
-            "Русский",
-            "Deutsch"});
+            "en",
+            "ru",
+            "de"});
             this.comboBox1.Location = new System.Drawing.Point(95, 330);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(50, 21);
             this.comboBox1.TabIndex = 22;
             this.comboBox1.TabStop = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
@@ -306,59 +306,59 @@
             // radioTube1
             // 
             this.radioTube1.AutoSize = true;
-            this.radioTube1.Location = new System.Drawing.Point(237, 33);
+            this.radioTube1.Location = new System.Drawing.Point(117, 28);
             this.radioTube1.Name = "radioTube1";
-            this.radioTube1.Size = new System.Drawing.Size(56, 17);
+            this.radioTube1.Size = new System.Drawing.Size(28, 17);
             this.radioTube1.TabIndex = 26;
             this.radioTube1.TabStop = true;
-            this.radioTube1.Text = "Tube1";
+            this.radioTube1.Text = "I";
             this.radioTube1.UseVisualStyleBackColor = true;
             // 
             // radioTube2
             // 
             this.radioTube2.AutoSize = true;
-            this.radioTube2.Location = new System.Drawing.Point(237, 56);
+            this.radioTube2.Location = new System.Drawing.Point(151, 28);
             this.radioTube2.Name = "radioTube2";
-            this.radioTube2.Size = new System.Drawing.Size(56, 17);
+            this.radioTube2.Size = new System.Drawing.Size(31, 17);
             this.radioTube2.TabIndex = 27;
             this.radioTube2.TabStop = true;
-            this.radioTube2.Text = "Tube2";
+            this.radioTube2.Text = "II";
             this.radioTube2.UseVisualStyleBackColor = true;
             // 
             // radioTube3
             // 
             this.radioTube3.AutoSize = true;
-            this.radioTube3.Location = new System.Drawing.Point(299, 33);
+            this.radioTube3.Location = new System.Drawing.Point(188, 28);
             this.radioTube3.Name = "radioTube3";
-            this.radioTube3.Size = new System.Drawing.Size(56, 17);
+            this.radioTube3.Size = new System.Drawing.Size(34, 17);
             this.radioTube3.TabIndex = 28;
             this.radioTube3.TabStop = true;
-            this.radioTube3.Text = "Tube3";
+            this.radioTube3.Text = "III";
             this.radioTube3.UseVisualStyleBackColor = true;
             // 
             // radioTube4
             // 
             this.radioTube4.AutoSize = true;
-            this.radioTube4.Location = new System.Drawing.Point(299, 56);
+            this.radioTube4.Location = new System.Drawing.Point(228, 28);
             this.radioTube4.Name = "radioTube4";
-            this.radioTube4.Size = new System.Drawing.Size(56, 17);
+            this.radioTube4.Size = new System.Drawing.Size(35, 17);
             this.radioTube4.TabIndex = 29;
             this.radioTube4.TabStop = true;
-            this.radioTube4.Text = "Tube4";
+            this.radioTube4.Text = "IV";
             this.radioTube4.UseVisualStyleBackColor = true;
             // 
             // radioTube5
             // 
             this.radioTube5.AutoSize = true;
-            this.radioTube5.Location = new System.Drawing.Point(267, 79);
+            this.radioTube5.Location = new System.Drawing.Point(269, 28);
             this.radioTube5.Name = "radioTube5";
-            this.radioTube5.Size = new System.Drawing.Size(56, 17);
+            this.radioTube5.Size = new System.Drawing.Size(32, 17);
             this.radioTube5.TabIndex = 30;
             this.radioTube5.TabStop = true;
-            this.radioTube5.Text = "Tube5";
+            this.radioTube5.Text = "V";
             this.radioTube5.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainDiag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -399,7 +399,7 @@
             this.MaximumSize = new System.Drawing.Size(725, 400);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(725, 400);
-            this.Name = "Form1";
+            this.Name = "MainDiag";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MCAWolfpackCalculator 1.3";
             this.TopMost = true;
