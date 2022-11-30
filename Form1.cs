@@ -50,7 +50,6 @@ namespace MCAWolfpackCalculator {
                     strHm = " hm, ";
                     strKm = " m";
                     targetNameHead.Text = "Target ID:";
-                    notNecessaryLabel.Text = "(optionally)";
                     headRangeHead.Text = "Range to target";
                     mastHeightLabel.Text = "Mast height:";
                     milsNumberLabel.Text = "Mils:";
@@ -62,7 +61,6 @@ namespace MCAWolfpackCalculator {
                     timeLabel.Text = "Elapsed time:";
                     calculateSpeedButton.Text = "Calculate speed";
                     calcSpeedLabel.Text = "Speed in knots = ";
-                    langLabel.Text = "Language:";
                     calculationHistoryHead.Text = "Calculation log";
                     ResetCLButton.Text = "Reset log";
                     clearFieldsButton.Text = "Reset fields";
@@ -77,7 +75,6 @@ namespace MCAWolfpackCalculator {
                     strHm = " гм, ";
                     strKm = " м";
                     targetNameHead.Text = "Имя цели:";
-                    notNecessaryLabel.Text = "(можно не указывать)";
                     headRangeHead.Text = "Дистанция до цели";
                     mastHeightLabel.Text = "Высота мачты:";
                     milsNumberLabel.Text = "Кол-во рисок:";
@@ -89,7 +86,6 @@ namespace MCAWolfpackCalculator {
                     timeLabel.Text = "Время на прохождение корпуса:";
                     calculateSpeedButton.Text = "Рассчитать скорость";
                     calcSpeedLabel.Text = "Скорость в узлах =";
-                    langLabel.Text = "Язык:";
                     calculationHistoryHead.Text = "История расчётов";
                     ResetCLButton.Text = "Очистить историю";
                     clearFieldsButton.Text = "Очистить поля";
@@ -104,7 +100,6 @@ namespace MCAWolfpackCalculator {
                     strHm = " hm, ";
                     strKm = " m";
                     targetNameHead.Text = "Ziel:";
-                    notNecessaryLabel.Text = "(optional)";
                     headRangeHead.Text = "Reichweite zum Ziel";
                     mastHeightLabel.Text = "Masthöhe:";
                     milsNumberLabel.Text = "Zeilenbetrag:";
@@ -116,7 +111,6 @@ namespace MCAWolfpackCalculator {
                     timeLabel.Text = "Zeit, den Rumpf fertigzustellen:";
                     calculateSpeedButton.Text = "Geschwindigkeit berechnen";
                     calcSpeedLabel.Text = "Geschwindigkeit in Knoten = ";
-                    langLabel.Text = "Sprache:";
                     calculationHistoryHead.Text = "Berechnungsprotokoll";
                     ResetCLButton.Text = "Protokoll zurücksetzen";
                     clearFieldsButton.Text = "Felder zurücksetzen";
@@ -166,7 +160,7 @@ namespace MCAWolfpackCalculator {
 
         // verify that all values are numbers
         private bool ValidateAllBoxes() {
-            bool wasValidate = false;
+            bool wasValidate;
             wasValidate = ValidateTextbox(mastHeightTextBox) || ValidateTextbox(linesNumberTextBox)
                           || ValidateTextbox(lengthTextBox) || ValidateTextbox(timeTextBox);
 
@@ -193,6 +187,7 @@ namespace MCAWolfpackCalculator {
         // sanitize that inputs are valid numbers and return
         private bool IsNum(string s) {
             int m = 0;
+            // iterate through each char for anything that may not be valid number or '.'
             for (int i = 0; i < s.Length; i++) {
                 if (!Char.IsDigit(s[i]) && s[i] != '.') return false;
                 if (s[i] == '.') m++;
@@ -250,5 +245,8 @@ namespace MCAWolfpackCalculator {
             timeTextBox.Text = "0";
         }
 
+        private void MainDiag_Load(object sender, EventArgs e) {
+
+        }
     }
 }

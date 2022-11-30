@@ -43,18 +43,17 @@
             this.calculateSpeedButton = new System.Windows.Forms.Button();
             this.targetNameHead = new System.Windows.Forms.Label();
             this.targetNameTextBox = new System.Windows.Forms.TextBox();
-            this.notNecessaryLabel = new System.Windows.Forms.Label();
             this.calculationHistoryHead = new System.Windows.Forms.Label();
             this.historyTextBox = new System.Windows.Forms.TextBox();
             this.ResetCLButton = new System.Windows.Forms.Button();
             this.clearFieldsButton = new System.Windows.Forms.Button();
-            this.langLabel = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.radioTube1 = new System.Windows.Forms.RadioButton();
             this.radioTube2 = new System.Windows.Forms.RadioButton();
             this.radioTube3 = new System.Windows.Forms.RadioButton();
             this.radioTube4 = new System.Windows.Forms.RadioButton();
             this.radioTube5 = new System.Windows.Forms.RadioButton();
+            this.tubeSelectorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // headRangeHead
@@ -217,36 +216,27 @@
             this.targetNameHead.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.targetNameHead.Location = new System.Drawing.Point(12, 9);
             this.targetNameHead.Name = "targetNameHead";
-            this.targetNameHead.Size = new System.Drawing.Size(65, 18);
+            this.targetNameHead.Size = new System.Drawing.Size(100, 18);
             this.targetNameHead.TabIndex = 17;
-            this.targetNameHead.Text = "Name:";
+            this.targetNameHead.Text = "Target ID:";
             // 
             // targetNameTextBox
             // 
-            this.targetNameTextBox.Location = new System.Drawing.Point(117, 7);
+            this.targetNameTextBox.Location = new System.Drawing.Point(118, 9);
             this.targetNameTextBox.MaxLength = 16;
             this.targetNameTextBox.Name = "targetNameTextBox";
             this.targetNameTextBox.Size = new System.Drawing.Size(173, 20);
             this.targetNameTextBox.TabIndex = 18;
             // 
-            // notNecessaryLabel
-            // 
-            this.notNecessaryLabel.AutoSize = true;
-            this.notNecessaryLabel.Location = new System.Drawing.Point(12, 30);
-            this.notNecessaryLabel.Name = "notNecessaryLabel";
-            this.notNecessaryLabel.Size = new System.Drawing.Size(57, 13);
-            this.notNecessaryLabel.TabIndex = 19;
-            this.notNecessaryLabel.Text = "(optionally)";
-            // 
             // calculationHistoryHead
             // 
             this.calculationHistoryHead.AutoSize = true;
             this.calculationHistoryHead.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.calculationHistoryHead.Location = new System.Drawing.Point(453, 9);
+            this.calculationHistoryHead.Location = new System.Drawing.Point(358, 11);
             this.calculationHistoryHead.Name = "calculationHistoryHead";
-            this.calculationHistoryHead.Size = new System.Drawing.Size(134, 18);
+            this.calculationHistoryHead.Size = new System.Drawing.Size(101, 18);
             this.calculationHistoryHead.TabIndex = 20;
-            this.calculationHistoryHead.Text = "Calculation log";
+            this.calculationHistoryHead.Text = "Attack Log";
             // 
             // historyTextBox
             // 
@@ -278,25 +268,15 @@
             this.clearFieldsButton.UseVisualStyleBackColor = true;
             this.clearFieldsButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
-            // langLabel
-            // 
-            this.langLabel.AutoSize = true;
-            this.langLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.langLabel.Location = new System.Drawing.Point(12, 331);
-            this.langLabel.Name = "langLabel";
-            this.langLabel.Size = new System.Drawing.Size(76, 16);
-            this.langLabel.TabIndex = 23;
-            this.langLabel.Text = "Language";
-            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "en",
-            "ru",
-            "de"});
-            this.comboBox1.Location = new System.Drawing.Point(95, 330);
+            "EN",
+            "RU",
+            "GE"});
+            this.comboBox1.Location = new System.Drawing.Point(647, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(50, 21);
             this.comboBox1.TabIndex = 22;
@@ -306,7 +286,7 @@
             // radioTube1
             // 
             this.radioTube1.AutoSize = true;
-            this.radioTube1.Location = new System.Drawing.Point(117, 28);
+            this.radioTube1.Location = new System.Drawing.Point(51, 37);
             this.radioTube1.Name = "radioTube1";
             this.radioTube1.Size = new System.Drawing.Size(28, 17);
             this.radioTube1.TabIndex = 26;
@@ -317,7 +297,7 @@
             // radioTube2
             // 
             this.radioTube2.AutoSize = true;
-            this.radioTube2.Location = new System.Drawing.Point(151, 28);
+            this.radioTube2.Location = new System.Drawing.Point(85, 37);
             this.radioTube2.Name = "radioTube2";
             this.radioTube2.Size = new System.Drawing.Size(31, 17);
             this.radioTube2.TabIndex = 27;
@@ -328,7 +308,7 @@
             // radioTube3
             // 
             this.radioTube3.AutoSize = true;
-            this.radioTube3.Location = new System.Drawing.Point(188, 28);
+            this.radioTube3.Location = new System.Drawing.Point(122, 37);
             this.radioTube3.Name = "radioTube3";
             this.radioTube3.Size = new System.Drawing.Size(34, 17);
             this.radioTube3.TabIndex = 28;
@@ -339,7 +319,7 @@
             // radioTube4
             // 
             this.radioTube4.AutoSize = true;
-            this.radioTube4.Location = new System.Drawing.Point(228, 28);
+            this.radioTube4.Location = new System.Drawing.Point(162, 37);
             this.radioTube4.Name = "radioTube4";
             this.radioTube4.Size = new System.Drawing.Size(35, 17);
             this.radioTube4.TabIndex = 29;
@@ -350,7 +330,7 @@
             // radioTube5
             // 
             this.radioTube5.AutoSize = true;
-            this.radioTube5.Location = new System.Drawing.Point(269, 28);
+            this.radioTube5.Location = new System.Drawing.Point(203, 37);
             this.radioTube5.Name = "radioTube5";
             this.radioTube5.Size = new System.Drawing.Size(32, 17);
             this.radioTube5.TabIndex = 30;
@@ -358,11 +338,21 @@
             this.radioTube5.Text = "V";
             this.radioTube5.UseVisualStyleBackColor = true;
             // 
+            // tubeSelectorLabel
+            // 
+            this.tubeSelectorLabel.AutoSize = true;
+            this.tubeSelectorLabel.Location = new System.Drawing.Point(13, 37);
+            this.tubeSelectorLabel.Name = "tubeSelectorLabel";
+            this.tubeSelectorLabel.Size = new System.Drawing.Size(32, 13);
+            this.tubeSelectorLabel.TabIndex = 31;
+            this.tubeSelectorLabel.Text = "Tube";
+            // 
             // MainDiag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 361);
+            this.Controls.Add(this.tubeSelectorLabel);
             this.Controls.Add(this.radioTube5);
             this.Controls.Add(this.radioTube4);
             this.Controls.Add(this.radioTube3);
@@ -370,11 +360,9 @@
             this.Controls.Add(this.radioTube1);
             this.Controls.Add(this.clearFieldsButton);
             this.Controls.Add(this.ResetCLButton);
-            this.Controls.Add(this.langLabel);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.historyTextBox);
             this.Controls.Add(this.calculationHistoryHead);
-            this.Controls.Add(this.notNecessaryLabel);
             this.Controls.Add(this.targetNameTextBox);
             this.Controls.Add(this.targetNameHead);
             this.Controls.Add(this.calculateSpeedButton);
@@ -403,6 +391,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MCAWolfpackCalculator 1.4";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.MainDiag_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,18 +418,17 @@
         private System.Windows.Forms.Button calculateSpeedButton;
         private System.Windows.Forms.Label targetNameHead;
         private System.Windows.Forms.TextBox targetNameTextBox;
-        private System.Windows.Forms.Label notNecessaryLabel;
         private System.Windows.Forms.Label calculationHistoryHead;
         private System.Windows.Forms.TextBox historyTextBox;
         private System.Windows.Forms.Button ResetCLButton;
         private System.Windows.Forms.Button clearFieldsButton;
-        private System.Windows.Forms.Label langLabel;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.RadioButton radioTube1;
         private System.Windows.Forms.RadioButton radioTube2;
         private System.Windows.Forms.RadioButton radioTube3;
         private System.Windows.Forms.RadioButton radioTube4;
         private System.Windows.Forms.RadioButton radioTube5;
+        private System.Windows.Forms.Label tubeSelectorLabel;
     }
 }
 
