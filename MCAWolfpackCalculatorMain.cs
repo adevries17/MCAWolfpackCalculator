@@ -10,7 +10,7 @@ namespace MCAWolfpackCalculator {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainDiag());
+            Application.Run(new MCAWolfpackCalculatorForm());
         }
     }
 }

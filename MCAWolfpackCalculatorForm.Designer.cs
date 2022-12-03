@@ -1,5 +1,5 @@
 ﻿namespace MCAWolfpackCalculator {
-    partial class MainDiag {
+    partial class MCAWolfpackCalculatorForm {
         /// <summary>
         /// Mandatory design variable.
         /// </summary>
@@ -23,7 +23,7 @@
         /// содержимое этого метода с помощью редактора кода.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainDiag));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCAWolfpackCalculatorForm));
             this.headRangeHead = new System.Windows.Forms.Label();
             this.headTargetSpeedHead = new System.Windows.Forms.Label();
             this.mastHeightLabel = new System.Windows.Forms.Label();

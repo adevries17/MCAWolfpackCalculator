@@ -22,10 +22,10 @@ namespace MCAWolfpackCalculator {
         ger = 6
     }
 
-    public partial class MainDiag : Form {
+    public partial class MCAWolfpackCalculatorForm : Form {
 
         int historyLine = 0;
-        public MainDiag() {
+        public MCAWolfpackCalculatorForm() {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
         }
