@@ -64,7 +64,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>MCAWolfpackCalculator.Program</StartupObject>
+    <StartupObject>MCAWolfpackCalculator.MCAWolfpackCalculatorMain</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -86,7 +86,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="MCAWolfpackCalculatorMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

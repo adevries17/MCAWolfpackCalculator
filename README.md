@@ -1,4 +1,4 @@
-# TorpedoAssist
+# MCA Wolfpack Calculator
 Small tool in C# for the [Wolfpack Computer Game](https://www.wolfpackgame.com/). Also an excuse for me to learn C#.
 
 Assists with the following calculations:

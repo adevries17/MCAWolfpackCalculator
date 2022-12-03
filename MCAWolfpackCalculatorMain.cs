@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 
 namespace MCAWolfpackCalculator {
-    static class Program {
+    static class MCAWolfpackCalculatorMain {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
