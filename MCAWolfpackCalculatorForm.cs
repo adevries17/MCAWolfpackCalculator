@@ -1,31 +1,37 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace MCAWolfpackCalculator {
+namespace MCAWolfpackCalculator
+{
 
     // define unit types
-    enum Units {
+    enum Units
+    {
         kilometers,
         hectometers
     };
 
     // type of calculations
-    enum CalculationType {
+    enum CalculationType
+    {
         speedCalculation = 2,
         rangeCalculation = 3
     }
 
     // available languages
-    enum Lang {
+    enum Lang
+    {
         rus = 4,
         eng = 5,
         ger = 6
     }
 
-    public partial class MCAWolfpackCalculatorForm : Form {
+    public partial class MCAWolfpackCalculatorForm : Form
+    {
 
         int historyLine = 0;
-        public MCAWolfpackCalculatorForm() {
+        public MCAWolfpackCalculatorForm()
+        {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
         }
@@ -38,8 +44,10 @@ namespace MCAWolfpackCalculator {
         string strKm;
 
         //Text constants for language
-        private void ChangeLang(Lang language) {
-            switch (language) {
+        private void ChangeLang(Lang language)
+        {
+            switch (language)
+            {
                 case Lang.eng:
                     timeTextBox.Left = 140;
                     calculationHistoryHead.Left = 465;
@@ -119,35 +127,41 @@ namespace MCAWolfpackCalculator {
         }
 
         // calculate range
-        private double CalculateRange(Units unit, double mastHeight, double mils, bool isZoomed) {
+        private double CalculateRange(Units unit, double mastHeight, double mils, bool isZoomed)
+        {
             if (mastHeight == 0 || mils == 0) return 0;
             else if (mastHeight > 200 || mils == 0) return 0;
-            switch (unit) {
+            switch (unit)
+            {
                 case Units.kilometers:
-                    if (isZoomed) return ((mastHeight / mils) * 4.0) * 100.0;
+                    if (isZoomed) return ((mastHeight / mils) * 4.9167) * 100.0;
                     else return (mastHeight / mils) * 100.0;
                 case Units.hectometers:
-                    if (isZoomed) return (mastHeight / mils) * 4.0;
+                    if (isZoomed) return (mastHeight / mils) * 4.9167;
                     else return (mastHeight / mils);
             }
             return 0;
         }
 
         // calculate the speed
-        private double CalculateSpeed(double length, double time) {
+        private double CalculateSpeed(double length, double time)
+        {
             if (length == 0 || time == 0) return 0;
             else if (length > 500 || time > 600) return 0;
             return length / time * 2;
         }
 
         // write results to history log to reference later
-        private void ToHistory(string targetName, CalculationType calcType) {
-            if (historyLine == 21) {
+        private void ToHistory(string targetName, CalculationType calcType)
+        {
+            if (historyLine == 21)
+            {
                 historyTextBox.Clear();
                 historyLine = 0;
             }
             if (targetName == "") targetName = strNameless;
-            switch (calcType) {
+            switch (calcType)
+            {
                 case CalculationType.rangeCalculation:
                     historyTextBox.Text += strTarget + targetName + strRange + rangeValueLabel.Text + Environment.NewLine;
                     break;
@@ -159,7 +173,8 @@ namespace MCAWolfpackCalculator {
         }
 
         // verify that all values are numbers
-        private bool ValidateAllBoxes() {
+        private bool ValidateAllBoxes()
+        {
             bool wasValidate;
             wasValidate = ValidateTextbox(mastHeightTextBox) || ValidateTextbox(linesNumberTextBox)
                           || ValidateTextbox(lengthTextBox) || ValidateTextbox(timeTextBox);
@@ -170,14 +185,16 @@ namespace MCAWolfpackCalculator {
         }
 
         // validate inputs are numbers
-        private bool ValidateTextbox(TextBox txtbox) {
+        private bool ValidateTextbox(TextBox txtbox)
+        {
             bool result = !IsNum(txtbox.Text);
 
             return result;
         }
 
         // clear all input boxes
-        private void ClearTextBoxes() {
+        private void ClearTextBoxes()
+        {
             mastHeightTextBox.Text = "0";
             linesNumberTextBox.Text = "0";
             lengthTextBox.Text = "0";
@@ -185,10 +202,12 @@ namespace MCAWolfpackCalculator {
         }
 
         // sanitize that inputs are valid numbers and return
-        private bool IsNum(string s) {
+        private bool IsNum(string s)
+        {
             int m = 0;
             // iterate through each char for anything that may not be valid number or '.'
-            for (int i = 0; i < s.Length; i++) {
+            for (int i = 0; i < s.Length; i++)
+            {
                 if (!Char.IsDigit(s[i]) && s[i] != '.') return false;
                 if (s[i] == '.') m++;
                 if (m > 1) return false;
@@ -198,7 +217,8 @@ namespace MCAWolfpackCalculator {
         }
 
         // perform range calculation at button click
-        private void CalculateRangeButton_Click(object sender, EventArgs e) {
+        private void CalculateRangeButton_Click(object sender, EventArgs e)
+        {
             if (ValidateAllBoxes()) return;
             double rangeInHecto;
             double rangeInKilo;
@@ -209,7 +229,8 @@ namespace MCAWolfpackCalculator {
         }
 
         // perform the speed calculation at button click
-        private void CalculateSpeedButton_Click(object sender, EventArgs e) {
+        private void CalculateSpeedButton_Click(object sender, EventArgs e)
+        {
             if (ValidateAllBoxes()) return;
             double speed;
             speed = CalculateSpeed(double.Parse(lengthTextBox.Text), double.Parse(timeTextBox.Text));
@@ -218,26 +239,32 @@ namespace MCAWolfpackCalculator {
         }
 
         // language selector drop down
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            if (comboBox1.SelectedIndex == 1) {
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 1)
+            {
                 ChangeLang(Lang.rus);
             }
-            if (comboBox1.SelectedIndex == 0) {
+            if (comboBox1.SelectedIndex == 0)
+            {
                 ChangeLang(Lang.eng);
             }
-            if (comboBox1.SelectedIndex == 2) {
+            if (comboBox1.SelectedIndex == 2)
+            {
                 ChangeLang(Lang.ger);
             }
         }
 
         // clear the history log
-        private void ClearHistorybutton_Click(object sender, EventArgs e) {
+        private void ClearHistorybutton_Click(object sender, EventArgs e)
+        {
             historyTextBox.Clear();
             historyLine = 0;
         }
 
         // clear everything box
-        private void ClearButton_Click(object sender, EventArgs e) {
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
             targetNameTextBox.Text = "";
             mastHeightTextBox.Text = "0";
             linesNumberTextBox.Text = "0";
@@ -245,7 +272,8 @@ namespace MCAWolfpackCalculator {
             timeTextBox.Text = "0";
         }
 
-        private void MainDiag_Load(object sender, EventArgs e) {
+        private void MainDiag_Load(object sender, EventArgs e)
+        {
 
         }
     }
