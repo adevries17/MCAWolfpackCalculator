@@ -6,10 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MCAWolfpackCalc"
         mc:Ignorable="d"
-        Title="MCA Wolfpack Calculator" 
-        Height="Auto" Width="800"
-        Background="Black"
-        Icon="/mca32x32.ico">
+        Title="MCA Wolfpack Calculator" Width="800" Height="400"
+        Background="Black" Icon="/mca32x32.ico">
 
 
     <Grid>
@@ -25,100 +23,63 @@
         </Grid.RowDefinitions>
 
 
-        <!-- input for target name -->
-        <DockPanel Grid.Column="0" Grid.Row="0">
+        <!-- left side -->
+        <DockPanel x:Name="TargetID" Grid.Column="0" Grid.Row="0">
             <Label Content="Target ID:" Foreground="White" FontSize="18"/>
-
             <TextBox x:Name="TargetInputBox" Background="Black" Foreground="White" BorderThickness="2" BorderBrush="White"/>
         </DockPanel>
 
-
-        <!-- subgrid for the controls upper right corner -->
-        <UniformGrid Grid.Column="1" Columns="3">
-            <!-- add to attack button -->
-            <Button x:Name="AttackBtn" Content="Add to attack" Background="Black" Foreground="White"/>
-
-            <!-- reset target fields -->
-            <Button x:Name="ResetFieldsBtn" Content="Reset fields" Background="Black" Foreground="White"/>
-
-            <!-- reset attack -->
-            <Button x:Name="ResetAttackBtn" Content="Reset attack" Background="Black" Foreground="White"/>
-        </UniformGrid>
-
-
-        <!-- target input fields -->
-        <StackPanel Grid.Row="1" Grid.Column="0">
-            <!-- detonator -->
-            <UniformGrid Columns="2">
-                <Label Content="Detonator type" Background="Black" Foreground="White"/>
-                <ComboBox ItemsSource="{StaticResource Detonators}"/>
+        <StackPanel Grid.Row="1">
+            <UniformGrid Rows="1">
+                <Label Content="Range to target" Foreground="White" FontSize="16"/>
+                <CheckBox x:Name="ZoomedCheckBox" Content="Zoomed" Foreground="White" VerticalAlignment="Center" IsThreeState="False"/>
             </UniformGrid>
 
-            <!-- mast height -->
-            <UniformGrid Columns="2">
-                <Label Content="Mast height:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="MastHeightTxBx" Background="Black" Foreground="White"/>
+            <UniformGrid Rows="1">
+                <Label Content="Mast Height" Foreground="White"/>
+                <TextBox x:Name="MastHeightTextBox" Foreground="White" Background="Black"/>
             </UniformGrid>
 
-            <!-- draught or draft -->
-            <UniformGrid Columns="2">
-                <Label Content="Draught:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="DraughtTxBx" Background="Black" Foreground="White"/>
+            <UniformGrid Rows="1">
+                <Label Content="Mils" Foreground="White"/>
+                <TextBox x:Name="MilsTextBox" Foreground="White" Background="Black"/>
             </UniformGrid>
 
-            <!-- target length -->
-            <UniformGrid Columns="2">
-                <Label Content="Target Length:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="TargetLenTxBx" Background="Black" Foreground="White"/>
+            <UniformGrid Rows="1">
+                <Label Content="Calculated Distance (hm)" Foreground="White"/>
+                <TextBox x:Name="CalculatedDistanceTextBox" Foreground="White" Background="Black" IsReadOnly="True"/>
+            </UniformGrid>
+            <Button x:Name="CalcRangeButton" Content="Calculate Range" Foreground="White" Background="Black" Click="CalcRangeButton_Click"/>
+
+
+            <Label Content="Speed of target" FontSize="16" Foreground="White"/>
+
+            <UniformGrid Rows="1">
+                <Label Content="Target Length (m)" Foreground="White"/>
+                <TextBox x:Name="TargetLengthTextBox" Background="Black" Foreground="White"/>
             </UniformGrid>
 
-            <!-- aob -->
-            <UniformGrid Columns="2">
-                <Label Content="Angle on Bow:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="AoBTxBx" Background="Black" Foreground="White"/>
+            <UniformGrid Rows="1">
+                <Label Content="Time to complete hull" Foreground="White"/>
+                <TextBox x:Name="SecondsTextbox" Foreground="White" Background="Black"/>
             </UniformGrid>
 
-            <!-- ownship course -->
-            <UniformGrid Columns="2">
-                <Label Content="Ownship Course:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="OwnCourseTxBx" Background="Black" Foreground="White"/>
+            <UniformGrid Rows="1">
+                <Label Content="Speed (kn)" Foreground="White"/>
+                <TextBox x:Name="CalculatedSpeedTextBox" Foreground="White" Background="Black" IsReadOnly="True"/>
             </UniformGrid>
+            
+            <Button x:Name="CalcSpeedButton" Content="Calculate Speed" Foreground="White" Background="Black" Click="CalcSpeedButton_Click"/>
+            <Button x:Name="AddToLogButton" Content="Add to attack log" Foreground="White" Background="Black" Click="AddToLogButton_Click"/>
 
-            <!-- target course -->
-            <UniformGrid Columns="2">
-                <Label Content="Target Course:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="TargetCrsTxBx" Background="Black" Foreground="White"/>
-            </UniformGrid>
-
-            <!-- target speed -->
-            <UniformGrid Columns="2">
-                <Label Content="Target Speed:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="TargetSpdTxBx" Background="Black" Foreground="White"/>
-            </UniformGrid>
-
-            <!-- target measured time -->
-            <UniformGrid Columns="2">
-                <Label Content="Target Measured Time:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="TargetTimeTxBx" Background="Black" Foreground="White"/>
-            </UniformGrid>
-
-            <!-- range to target -->
-            <UniformGrid Columns="2">
-                <Label Content="Target Range:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="TargetRngTxBx" Background="Black" Foreground="White"/>
-            </UniformGrid>
-
-            <!-- relative bearing to target -->
-            <UniformGrid Columns="2">
-                <Label Content="Target Bearing:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="TargetBrngTxBx" Background="Black" Foreground="White"/>
-            </UniformGrid>
-
-            <!-- torp run time -->
-            <UniformGrid Columns="2">
-                <Label Content="Torpedo Run time:" Background="Black" Foreground="White"/>
-                <TextBox x:Name="TorpRunTimeTxBx" Background="Black" Foreground="White"/>
+            <UniformGrid Rows="1">
+                <Button x:Name="ResetFieldsButton" Content="Reset fields" VerticalAlignment="Center" Foreground="White" Background="Black" Click="ResetFieldsButton_Click"/>
+                <Button x:Name="ResetLogButton" Content="Reset Log" VerticalAlignment="Center" Foreground="White" Background="Black" Click="ResetLogButton_Click"/>
             </UniformGrid>
         </StackPanel>
+
+        <!-- right side -->
+        <Label Grid.Row="0" Grid.Column="1" Content="Attack Log" Foreground="White" FontSize="16"/>
+        <TextBox x:Name="AttackLogTextBox" Grid.Row="1" Grid.Column="1" Foreground="White" Background="Black" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True"/>
     </Grid>
 </Window>
