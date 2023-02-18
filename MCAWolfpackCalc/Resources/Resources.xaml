@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <system:String x:Key="Steam">Steam</system:String>
+    <system:String x:Key="Electric">Electric</system:String>
+    <system:String x:Key="Impact">Impact</system:String>
+    <system:String x:Key="Magnetic">Magnetic</system:String>
+    <system:String x:Key="PeriscopeZoom">Periscope Zoom</system:String>
+    <system:String x:Key="Zoomed">Zoomed</system:String>
+    <system:String x:Key="Yes">Yes</system:String>
+    <system:String x:Key="No">No</system:String>
+    <system:String x:Key="In">In</system:String>
+    <system:String x:Key="Out">Out</system:String>
+    <system:String x:Key="Detonator">Detonator</system:String>
+    <system:String x:Key="MastHeight">Mast Height</system:String>
+    <system:String x:Key="Draught">Draught</system:String>
+    <system:String x:Key="TargetLength">Target Length</system:String>
+    <system:String x:Key="AoB">Angle on Bow</system:String>
+    <system:String x:Key="OwnshipCrs">Ownship Course</system:String>
+    <system:String x:Key="TargetCrs">Target Course</system:String>
+    <system:String x:Key="TargetSpd">Target Speed</system:String>
+    <system:String x:Key="TargetRange">Target Range</system:String>
+    <system:String x:Key="TargetBearing">Target Bearing</system:String>
+    <system:String x:Key="MeasuredTargetTime">Measured Target Time</system:String>
+    <system:String x:Key="TorpRunTime">Torpedo Run time</system:String>
+    <system:String x:Key="AddtoAtk">Add to Attack</system:String>
+    <system:String x:Key="ResetFields">Reset Fields</system:String>
+    <system:String x:Key="ResetAtk">Reset Attack</system:String>
+    <system:String x:Key="TargetID">Target ID</system:String>
+    <system:String x:Key="Mils">Mils</system:String>
+    <system:String x:Key="CalculatedDistance">Calculated Distance (hm)</system:String>
+    <system:String x:Key="CalculateRange">Calculate Range</system:String>
+    <system:String x:Key="CalculateSpeed">Calculated Speed</system:String>
+    <system:String x:Key="AttackLog">Attack Log</system:String>
+
+</ResourceDictionary>
