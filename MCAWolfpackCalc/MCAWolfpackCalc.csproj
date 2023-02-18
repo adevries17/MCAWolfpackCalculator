@@ -5,8 +5,10 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	<UICulture>en-US</UICulture>
   </PropertyGroup>
-
+	
 	
   <ItemGroup>
     <Resource Include="mca32x32.ico" />

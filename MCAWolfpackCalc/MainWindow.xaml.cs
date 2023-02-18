@@ -8,12 +8,13 @@ namespace MCAWolfpackCalc {
         public MainWindow() {
             InitializeComponent();
         }
-
-        // fields
+        #region Fields
         int attacklogline = 0;
         readonly string targetundefined = "UNDEFINED";
 
-        // methods
+        #endregion
+
+        #region Methods
         private void WriteToAttackLog(string targetname) {
             if (attacklogline >= 21) {
                 AttackLogTextBox.Clear();
@@ -55,12 +56,32 @@ namespace MCAWolfpackCalc {
             double shiplength = double.Parse(TargetLengthTextBox.Text);
             double seconds = double.Parse(SecondsTextbox.Text);
 
-            var calculatedspeed = Calculations.CalculateTargetSpeed(shiplength, seconds);
+            double calculatedspeed = Calculations.CalculateTargetSpeed(shiplength, seconds);
             CalculatedSpeedTextBox.Text = calculatedspeed.ToString();
         }
 
         private void AddToLogButton_Click(object sender, RoutedEventArgs e) {
             WriteToAttackLog(TargetInputBox.Text);
         }
+
+        //private void EngineWindowButton_Click(object sender, RoutedEventArgs e) {
+        //    EngineWindow enginewindow = new() {
+        //        Owner = this
+        //    };
+        //    enginewindow.Show();
+        //}
+
+        private void English_Click(object sender, RoutedEventArgs e) {
+            App.SetCulture("en-US");
+        }
+
+        private void German_Click(object sender, RoutedEventArgs e) {
+            App.SetCulture("de-DE");
+        }
+
+        private void Russia_Click(object sender, RoutedEventArgs e) {
+            App.SetCulture("ru-RU");
+        }
+        #endregion
     }
 }
