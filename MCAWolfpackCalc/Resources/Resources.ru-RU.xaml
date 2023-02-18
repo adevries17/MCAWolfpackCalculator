@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="Steam">Стим</system:String>
+    <system:String x:Key="Electric">Электрический</system:String>
+    <system:String x:Key="Impact">Влияние</system:String>
+    <system:String x:Key="Magnetic">Магнитный</system:String>
+    <system:String x:Key="PeriscopeZoom">Перископ зум</system:String>
+    <system:String x:Key="Zoomed">увеличен</system:String>
+    <system:String x:Key="Yes">да</system:String>
+    <system:String x:Key="No">нет</system:String>
+    <system:String x:Key="In">B</system:String>
+    <system:String x:Key="Out">вне</system:String>
+    <system:String x:Key="Detonator">Детонатор</system:String>
+    <system:String x:Key="MastHeight">Высота мачты</system:String>
+    <system:String x:Key="Draught">Проект</system:String>
+    <system:String x:Key="TargetLength">Целевая длина</system:String>
+    <system:String x:Key="AoB">Угол на носу</system:String>
+    <system:String x:Key="OwnshipCrs">курс владения</system:String>
+    <system:String x:Key="TargetCrs">Целевой курс</system:String>
+    <system:String x:Key="TargetSpd">целевая скорость</system:String>
+    <system:String x:Key="TargetRange">Целевой диапазон</system:String>
+    <system:String x:Key="TargetBearing">Целевой пеленг</system:String>
+    <system:String x:Key="MeasuredTargetTime">Измеренное целевое время</system:String>
+    <system:String x:Key="TorpRunTime">Время работы торпеды</system:String>
+    <system:String x:Key="AddtoAtk">Добавить в атаку</system:String>
+    <system:String x:Key="ResetFields">Очистить поля</system:String>
+    <system:String x:Key="ResetAtk">Сбросить атаку</system:String>
+    <system:String x:Key="TargetID">Идентификатор цели</system:String>
+    <system:String x:Key="Mils">МИЛЛИРАДИАНЫ</system:String>
+    <system:String x:Key="CalculatedDistance">Расчетное расстояние (hm)</system:String>
+    <system:String x:Key="CalculateRange">Расчетный диапазон</system:String>
+    <system:String x:Key="CalculateSpeed">Рассчитать скорость</system:String>
+    <system:String x:Key="AttackLog">Журнал атак</system:String>
+</ResourceDictionary>

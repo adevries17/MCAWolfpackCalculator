@@ -3,17 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:MCAWolfpackCalc"
+             DispatcherUnhandledException="Application_DispatcherUnhandledException"
              StartupUri="MainWindow.xaml">
+    
+    
     <Application.Resources>
-        <x:Array x:Key="Langs" Type="sys:String">
-            <sys:String>English</sys:String>
-            <sys:String>German</sys:String>
-            <sys:String>Russian</sys:String>
-        </x:Array>
-
-        <x:Array x:Key="Detonators" Type="sys:String">
-            <sys:String>Magnetic</sys:String>
-            <sys:String>Impact</sys:String>
-        </x:Array>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\Resources.de-DE.xaml"/>
+                <ResourceDictionary Source="Resources\Resources.ru-RU.xaml"/>
+                <ResourceDictionary Source="Resources\Resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
