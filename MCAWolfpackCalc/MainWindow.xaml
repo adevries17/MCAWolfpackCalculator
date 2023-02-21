@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:MCAWolfpackCalc"
         mc:Ignorable="d"
         Title="MCA Wolfpack Calculator" 
-        SizeToContent="WidthAndHeight" MinWidth="900"
+        SizeToContent="WidthAndHeight"
         FontSize="18"
         Background="Black" Icon="/mca32x32.ico">
 
@@ -15,12 +15,12 @@
     <Grid>
         <!-- define overall layout-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -30,8 +30,10 @@
             <Label Background="Black" Foreground="White" 
                    Content="{DynamicResource TargetID}">
             </Label>
-            
-            <TextBox x:Name="TargetInputBox" Background="Black" Foreground="White" BorderThickness="2" BorderBrush="White"/>
+
+            <TextBox x:Name="TargetInputBox" Background="Black" Foreground="White" 
+                     BorderThickness="2" BorderBrush="White">
+            </TextBox>
         </DockPanel>
 
         <StackPanel Grid.Row="1">
@@ -40,7 +42,7 @@
                        Content="{DynamicResource TargetRange}">
                 </Label>
 
-                <CheckBox x:Name="ZoomedCheckBox" Foreground="White" VerticalAlignment="Center" IsThreeState="False"
+                <CheckBox x:Name="ZoomedCheckBox" Foreground="White" IsThreeState="False"
                           Content="{DynamicResource Zoomed}" VerticalContentAlignment="Center">
                 </CheckBox>
             </UniformGrid>
@@ -66,7 +68,8 @@
                        Content="{DynamicResource CalculatedDistance}">
                 </Label>
 
-                <TextBox x:Name="CalculatedDistanceTextBox" Foreground="White" Background="Black" IsReadOnly="True"/>
+                <TextBox x:Name="CalculatedDistanceTextBox" Foreground="White" 
+                         Background="Black" IsReadOnly="True"/>
             </UniformGrid>
 
             <Button x:Name="CalcRangeButton" Foreground="White" Background="Black" 
@@ -95,7 +98,8 @@
                        Content="{DynamicResource TargetSpd}">
                 </Label>
 
-                <TextBox x:Name="CalculatedSpeedTextBox" Foreground="White" Background="Black" IsReadOnly="True"/>
+                <TextBox x:Name="CalculatedSpeedTextBox" Foreground="White" 
+                         Background="Black" IsReadOnly="True"/>
             </UniformGrid>
 
             <Button x:Name="CalcSpeedButton" Foreground="White" Background="Black" 
@@ -109,12 +113,14 @@
             </Button>
 
             <UniformGrid Rows="1">
-                <Button x:Name="ResetFieldsButton" VerticalAlignment="Center" Foreground="White" Background="Black" 
+                <Button x:Name="ResetFieldsButton" VerticalAlignment="Center" 
+                        Foreground="White" Background="Black" 
                         Click="ResetFieldsButton_Click"
                         Content="{DynamicResource ResetFields}">
                 </Button>
 
-                <Button x:Name="ResetLogButton" VerticalAlignment="Center" Foreground="White" Background="Black" 
+                <Button x:Name="ResetLogButton" VerticalAlignment="Center" 
+                        Foreground="White" Background="Black" 
                         Click="ResetLogButton_Click"
                         Content="{DynamicResource ResetAtk}">
                 </Button>
@@ -140,19 +146,25 @@
         </StackPanel>
 
         <!-- right side -->
-        <UniformGrid Grid.Column="1" Rows="1">
-            <Label Grid.Row="0" Grid.Column="1" Background="Black" Foreground="White"
+        <StackPanel Grid.Row="2">
+            <DockPanel>
+                <Label Background="Black" Foreground="White"
                    Content="{DynamicResource AttackLog}">
-            </Label>
-            
-            <!--<Button x:Name="EngineWindowButton" Foreground="White" Background="Black"
-                    Click="EngineWindowButton_Click">
-                Show engine assistant
-            </Button>-->
-        </UniformGrid>
+                </Label>
 
-        <TextBox x:Name="AttackLogTextBox" Grid.Row="1" Grid.Column="1" Foreground="White" Background="Black" 
-                 IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True">
-        </TextBox>
+                <Button x:Name="EngineWindowButton" 
+                        Foreground="White" Background="Black"
+                        HorizontalAlignment="Right"
+                        Click="EngineWindowButton_Click">
+                    Show engineering assistant
+                </Button>
+            </DockPanel>
+            
+            <TextBox x:Name="AttackLogTextBox" 
+                     Foreground="White" Background="Black" 
+                     IsReadOnly="True" TextWrapping="Wrap" 
+                     AcceptsReturn="True" Height="400">
+            </TextBox>
+        </StackPanel>
     </Grid>
 </Window>

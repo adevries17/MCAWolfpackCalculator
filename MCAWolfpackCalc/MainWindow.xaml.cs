@@ -64,12 +64,12 @@ namespace MCAWolfpackCalc {
             WriteToAttackLog(TargetInputBox.Text);
         }
 
-        //private void EngineWindowButton_Click(object sender, RoutedEventArgs e) {
-        //    EngineWindow enginewindow = new() {
-        //        Owner = this
-        //    };
-        //    enginewindow.Show();
-        //}
+        private void EngineWindowButton_Click(object sender, RoutedEventArgs e) {
+            EngineWindow enginewindow = new() {
+                Owner = this
+            };
+            enginewindow.Show();
+        }
 
         private void English_Click(object sender, RoutedEventArgs e) {
             App.SetCulture("en-US");
