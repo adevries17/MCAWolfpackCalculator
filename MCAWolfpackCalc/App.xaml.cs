@@ -1,18 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 
-namespace MCAWolfpackCalc {
+namespace MCAWolfpackCalc
+{
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application {
+    public partial class App : Application
+    {
 
         #region Methods
         // set the UI culture based on operating system
-        public static void SetCulture(string culture) {
+        public static void SetCulture(string culture)
+        {
             if (string.IsNullOrEmpty(culture))
                 return;
 
@@ -24,7 +26,8 @@ namespace MCAWolfpackCalc {
             ResourceDictionary? resourceDictionary = dictionaryList.
                 FirstOrDefault(d => d.Source.OriginalString == requestedCulture);
 
-            if (resourceDictionary == null) {
+            if (resourceDictionary == null)
+            {
                 //If not found, select our default language.             
                 requestedCulture = "Resources\\Resources.xaml";
                 resourceDictionary = dictionaryList.
@@ -33,7 +36,8 @@ namespace MCAWolfpackCalc {
 
             // If we have the requested resource, remove it from the list and place at the end.     
             // Then this language will be our string table to use.      
-            if (resourceDictionary != null) {
+            if (resourceDictionary != null)
+            {
                 Current.Resources.MergedDictionaries.Remove(resourceDictionary);
                 Current.Resources.MergedDictionaries.Add(resourceDictionary);
             }
@@ -43,7 +47,8 @@ namespace MCAWolfpackCalc {
             Thread.CurrentThread.CurrentUICulture = new(culture);
         }
 
-        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e) {
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
             MessageBox.Show("An unhandled exception just occurred: " + e.Exception.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
         }
