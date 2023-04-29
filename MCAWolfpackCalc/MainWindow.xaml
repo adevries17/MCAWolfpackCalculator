@@ -148,16 +148,7 @@
         <!-- right side -->
         <StackPanel Grid.Row="2">
             <DockPanel>
-                <Label Background="Black" Foreground="White"
-                   Content="{DynamicResource AttackLog}">
-                </Label>
-
-                <Button x:Name="EngineWindowButton" 
-                        Foreground="White" Background="Black"
-                        HorizontalAlignment="Right"
-                        Click="EngineWindowButton_Click">
-                    Show engineering assistant
-                </Button>
+                <Label Background="Black" Foreground="White" Content="{DynamicResource AttackLog}"/>
             </DockPanel>
             
             <TextBox x:Name="AttackLogTextBox" 
