@@ -6,11 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MCAWolfpackCalc"
         mc:Ignorable="d"
-        Title="MCA Wolfpack Calculator" 
-        SizeToContent="WidthAndHeight"
-        FontSize="18"
-        Background="Black" Icon="/mca32x32.ico">
-
+        Title="MCA Wolfpack Calculator" SizeToContent="WidthAndHeight" FontSize="18" Background="Black" Icon="/mca32x32.ico">
 
     <Grid>
         <!-- define overall layout-->
@@ -27,122 +23,65 @@
 
         <!-- left side -->
         <DockPanel x:Name="TargetID" Grid.Column="0" Grid.Row="0">
-            <Label Background="Black" Foreground="White" 
-                   Content="{DynamicResource TargetID}">
-            </Label>
+            <Label Background="Black" Foreground="White" Content="{DynamicResource TargetID}"/>
 
-            <TextBox x:Name="TargetInputBox" Background="Black" Foreground="White" 
-                     BorderThickness="2" BorderBrush="White">
-            </TextBox>
+            <TextBox x:Name="TargetInputBox" Background="Black" Foreground="White" BorderThickness="2" BorderBrush="White"/>
         </DockPanel>
 
         <StackPanel Grid.Row="1">
             <UniformGrid Rows="1">
-                <Label Background="Black" Foreground="White"
-                       Content="{DynamicResource TargetRange}">
-                </Label>
+                <Label Background="Black" Foreground="White" Content="{DynamicResource TargetRange}"/>
 
-                <CheckBox x:Name="ZoomedCheckBox" Foreground="White" IsThreeState="False"
-                          Content="{DynamicResource Zoomed}" VerticalContentAlignment="Center">
-                </CheckBox>
+                <CheckBox x:Name="ZoomedCheckBox" Foreground="White" IsThreeState="False" Content="{DynamicResource Zoomed}" VerticalContentAlignment="Center"/>
             </UniformGrid>
 
             <UniformGrid Rows="1">
-                <Label Background="Black" Foreground="White"
-                       Content="{DynamicResource MastHeight}">
-                </Label>
-                
+                <Label Background="Black" Foreground="White" Content="{DynamicResource MastHeight}"/>
+
                 <TextBox x:Name="MastHeightTextBox" Foreground="White" Background="Black"/>
             </UniformGrid>
 
             <UniformGrid Rows="1">
-                <Label Background="Black" Foreground="White"
-                       Content="{DynamicResource Mils}">
-                </Label>
-                
+                <Label Background="Black" Foreground="White" Content="{DynamicResource Mils}"/>
+
                 <TextBox x:Name="MilsTextBox" Foreground="White" Background="Black"/>
             </UniformGrid>
 
             <UniformGrid Rows="1">
-                <Label Background="Black" Foreground="White"
-                       Content="{DynamicResource CalculatedDistance}">
-                </Label>
+                <Label Background="Black" Foreground="White" Content="{DynamicResource CalculatedDistance}"/>
 
-                <TextBox x:Name="CalculatedDistanceTextBox" Foreground="White" 
-                         Background="Black" IsReadOnly="True"/>
+                <TextBox x:Name="CalculatedDistanceTextBox" Foreground="White" Background="Black" IsReadOnly="True"/>
             </UniformGrid>
 
-            <Button x:Name="CalcRangeButton" Foreground="White" Background="Black" 
-                    Click="CalcRangeButton_Click"
-                    Content="{DynamicResource CalculateRange}">
-            </Button>
+            <Button x:Name="CalcRangeButton" Foreground="White" Background="Black" Click="CalcRangeButton_Click" Content="{DynamicResource CalculateRange}"/>
 
             <UniformGrid Rows="1">
-                <Label Background="Black" Foreground="White"
-                       Content="{DynamicResource TargetLength}">
-                </Label>
-                
+                <Label Background="Black" Foreground="White" Content="{DynamicResource TargetLength}"/>
+
                 <TextBox x:Name="TargetLengthTextBox" Background="Black" Foreground="White"/>
             </UniformGrid>
 
             <UniformGrid Rows="1">
-                <Label Background="Black" Foreground="White"
-                       Content="{DynamicResource MeasuredTargetTime}">
-                </Label>
-                
+                <Label Background="Black" Foreground="White" Content="{DynamicResource MeasuredTargetTime}"/>
+
                 <TextBox x:Name="SecondsTextbox" Foreground="White" Background="Black"/>
             </UniformGrid>
 
             <UniformGrid Rows="1">
-                <Label Background="Black" Foreground="White"
-                       Content="{DynamicResource TargetSpd}">
-                </Label>
+                <Label Background="Black" Foreground="White" Content="{DynamicResource TargetSpd}"/>
 
-                <TextBox x:Name="CalculatedSpeedTextBox" Foreground="White" 
-                         Background="Black" IsReadOnly="True"/>
+                <TextBox x:Name="CalculatedSpeedTextBox" Foreground="White" Background="Black" IsReadOnly="True"/>
             </UniformGrid>
 
-            <Button x:Name="CalcSpeedButton" Foreground="White" Background="Black" 
-                    Click="CalcSpeedButton_Click"
-                    Content="{DynamicResource CalculateSpeed}">
-            </Button>
+            <Button x:Name="CalcSpeedButton" Foreground="White" Background="Black" Click="CalcSpeedButton_Click" Content="{DynamicResource CalculateSpeed}"/>
 
-            <Button x:Name="AddToLogButton" Foreground="White" Background="Black" 
-                    Click="AddToLogButton_Click"
-                    Content="{DynamicResource AddtoAtk}">
-            </Button>
+            <Button x:Name="AddToLogButton" Foreground="White" Background="Black" Click="AddToLogButton_Click" Content="{DynamicResource AddtoAtk}"/>
 
             <UniformGrid Rows="1">
-                <Button x:Name="ResetFieldsButton" VerticalAlignment="Center" 
-                        Foreground="White" Background="Black" 
-                        Click="ResetFieldsButton_Click"
-                        Content="{DynamicResource ResetFields}">
-                </Button>
+                <Button x:Name="ResetFieldsButton" VerticalAlignment="Center" Foreground="White" Background="Black" Click="ResetFieldsButton_Click" Content="{DynamicResource ResetFields}"/>
 
-                <Button x:Name="ResetLogButton" VerticalAlignment="Center" 
-                        Foreground="White" Background="Black" 
-                        Click="ResetLogButton_Click"
-                        Content="{DynamicResource ResetAtk}">
-                </Button>
+                <Button x:Name="ResetLogButton" VerticalAlignment="Center" Foreground="White" Background="Black" Click="ResetLogButton_Click" Content="{DynamicResource ResetAtk}"/>
             </UniformGrid>
-
-            <!--<UniformGrid Rows="1">
-                <Button x:Name="English" Foreground="White" Background="Black"
-                        Click="English_Click">
-                    English
-                </Button>
-
-                <Button x:Name="German" Foreground="White" Background="Black"
-                        Click="German_Click">
-                    German
-                </Button>
-
-                <Button x:Name="Russia" Foreground="White" Background="Black"
-                        Click="Russia_Click">
-                    Russia
-                </Button>
-                
-            </UniformGrid>-->
         </StackPanel>
 
         <!-- right side -->
@@ -150,12 +89,8 @@
             <DockPanel>
                 <Label Background="Black" Foreground="White" Content="{DynamicResource AttackLog}"/>
             </DockPanel>
-            
-            <TextBox x:Name="AttackLogTextBox" 
-                     Foreground="White" Background="Black" 
-                     IsReadOnly="True" TextWrapping="Wrap" 
-                     AcceptsReturn="True" Height="400">
-            </TextBox>
+
+            <TextBox x:Name="AttackLogTextBox" Foreground="White" Background="Black" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" Height="400"/>
         </StackPanel>
     </Grid>
 </Window>
