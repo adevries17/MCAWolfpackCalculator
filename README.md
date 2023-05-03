@@ -1,7 +1,7 @@
 # MCA Wolfpack Calculator
 Small tool in C# for the [Wolfpack Computer Game](https://www.wolfpackgame.com/). Also an excuse for me to learn C#.
 
-Requires .NET 7. Head over to [Releases](https://github.com/adevries17/MCAWolfpackCalculator/releases) to download it
+Requires .NET 6. Head over to [Releases](https://github.com/adevries17/MCAWolfpackCalculator/releases) to download it
 
 Assists with the following calculations:
 - Target Range
