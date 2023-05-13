@@ -10,8 +10,6 @@ namespace MCAWolfpackCalc
     /// </summary>
     public partial class App : Application
     {
-
-        #region Methods
         // set the UI culture based on operating system
         public static void SetCulture(string culture)
         {
@@ -21,28 +19,28 @@ namespace MCAWolfpackCalc
             // Copy all MergedDictionarys into a auxiliar list.
             List<ResourceDictionary> dictionaryList = Current.Resources.MergedDictionaries.ToList();
 
-            // Search for the specified culture.     
+            // Search for the specified culture.
             string requestedCulture = string.Format("Resources\\Resources.{0}.xaml", culture);
             ResourceDictionary? resourceDictionary = dictionaryList.
                 FirstOrDefault(d => d.Source.OriginalString == requestedCulture);
 
             if (resourceDictionary == null)
             {
-                //If not found, select our default language.             
+                //If not found, select our default language.
                 requestedCulture = "Resources\\Resources.xaml";
                 resourceDictionary = dictionaryList.
                     FirstOrDefault(d => d.Source.OriginalString == requestedCulture);
             }
 
-            // If we have the requested resource, remove it from the list and place at the end.     
-            // Then this language will be our string table to use.      
+            // If we have the requested resource, remove it from the list and place at the end.
+            // Then this language will be our string table to use.
             if (resourceDictionary != null)
             {
                 Current.Resources.MergedDictionaries.Remove(resourceDictionary);
                 Current.Resources.MergedDictionaries.Add(resourceDictionary);
             }
 
-            // Inform the threads of the new culture.     
+            // Inform the threads of the new culture.
             Thread.CurrentThread.CurrentCulture = new(culture);
             Thread.CurrentThread.CurrentUICulture = new(culture);
         }
@@ -52,6 +50,5 @@ namespace MCAWolfpackCalc
             MessageBox.Show("An unhandled exception just occurred: " + e.Exception.Message, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
         }
-        #endregion
     }
 }
